@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxTV</title>
+    <style>
+        :root {
+            --header-bg: #0d1e3a;
+            --page-bg: #e0e6ed;
+            --tile-bg: #ffffff;
+            --label-bg: #1155cc;
+            --label-text: #ffffff;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--page-bg);
+            color: #333;
+        }
+
+        /* Header Style */
+        .tv-header {
+            background-color: var(--header-bg);
+            color: #fff;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .tv-header-icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+        }
+
+        /* Grid Container */
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Channel Tile */
+        .channel-item {
+            background-color: var(--tile-bg);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .channel-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Image Logo Container */
+        .channel-logo-container {
+            width: 120px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background-color: #ffffff; 
+            border-radius: 8px;
+        }
+        
+        /* Ensures the custom image scales nicely without stretching */
+        .channel-img {
+            max-width: 80px; 
+            max-height: 80px;
+            object-fit: contain; 
+        }
+
+        /* Channel Label Button */
+        .channel-label {
+            background-color: var(--label-bg);
+            color: var(--label-text);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.3;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .channel-label:hover {
+            background-color: #0d44a1;
+        }
+        .channel-label span {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="tv-header">
+        <span class="tv-header-icon">&#x1F4FA;</span> MaxTV
+    </header>
+
+    <main class="channel-grid">
+        
+        <div class="channel-item" onclick="openLink('https://stream.9tv.co.il/player/channel/6882980c47aff185a00ab51a')">
+            <div class="channel-logo-container">
+                <img src="https://www.google.com/s2/favicons?domain=9tv.co.il&sz=128" alt="9TV Logo" class="channel-img">
+            </div>
+            <button class="channel-label">9TV Israel <span>9 Канал</span></button>
+        </div>
+
+        <div class="channel-item" onclick="openLink('https://vod.sport5.co.il/?Vc=12166&Vi=535648')">
+            <div class="channel-logo-container">
+                <img src="https://www.google.com/s2/favicons?domain=sport5.co.il&sz=128" alt="Sport 5 Logo" class="channel-img">
+            </div>
+            <button class="channel-label">Sport 5 <span>Sports</span></button>
+        </div>
+
+        <div class="channel-item" onclick="openLink('https://www.livehdtv.com/ulke/israel/')">
+            <div class="channel-logo-container">
+                <img src="https://www.google.com/s2/favicons?domain=livehdtv.com&sz=128" alt="Israel Live Logo" class="channel-img">
+            </div>
+            <button class="channel-label">Israel Live <span>Израиль Лайв</span></button>
+        </div>
+
+        <div class="channel-item" onclick="openLink('https://smotret.tv/')">
+            <div class="channel-logo-container">
+                <img src="https://www.google.com/s2/favicons?domain=smotret.tv&sz=128" alt="RU TV Logo" class="channel-img">
+            </div>
+            <button class="channel-label">RU TV <span>РУ ТВ</span></button>
+        </div>
+
+    </main>
+
+    <script>
+        function openLink(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
